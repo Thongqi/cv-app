@@ -1,0 +1,57 @@
+.work{
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+}
+
+.work p{
+    flex: 1;
+}
+
+.title, .coursename{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.companyname, .institutename{
+    font-size: 1.0rem;
+    font-weight: bold;
+}
+
+.timeframe{
+    font-size: 0.9rem;
+    font-weight: lighter;
+    font-style: italic;
+}
+
+.descr{
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 100%;
+    text-align: justify;
+}
+
+.template-h2{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.resume{
+    padding: 1rem;
+    aspect-ratio: 1/1.414;
+    margin: 1rem;
+}
+
+.ltor{
+    display: flex;
+    flex-direction: row;
+    gap:10px;
+}
+
+.ltor .left{
+    width: 30%;
+}
+
+.ltor .right{
+    width: 70%
+}

@@ -1,0 +1,12 @@
+.accordion{
+    border-radius: 5px;
+    padding: 1rem;
+    
+}
+
+.form{
+    width: 100%;
+    min-width: 300px;
+    padding: 2rem 2rem 0 2rem;
+
+}
