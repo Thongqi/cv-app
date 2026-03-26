@@ -1,12 +1,11 @@
-.accordion{
-    border-radius: 5px;
-    padding: 1rem;
-    
+.accordion {
+  border-radius: 5px;
+  padding: 1rem;
 }
 
-.form{
-    width: 100%;
-    min-width: 300px;
-    padding: 2rem 2rem 0 2rem;
-
+.form {
+  width: 30%;
+  min-width: 300px;
+  padding: 2rem 2rem 0 2rem;
+  background-color: var(--bg-color);
 }

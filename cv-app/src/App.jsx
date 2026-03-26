@@ -1,7 +1,13 @@
-export function App() {
+import { Resume } from "./components/cv-template";
+import { Form } from "./components/form";
+
+export default function App() {
   return (
     <>
-      <h1>Yo</h1>
+      <div style={{ display: "flex", flexDirection: "row" }}>
+        <Form></Form>
+        <Resume></Resume>
+      </div>
     </>
   );
 }
