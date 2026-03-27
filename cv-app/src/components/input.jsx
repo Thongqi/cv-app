@@ -2,7 +2,7 @@ export function Input({ labelname, value }) {
   return (
     <>
       <label>{labelname}</label>
-      <input name="name" value={value} />
+      <input name="name" value={this.state.value} onchange={this.handleChange}/>
     </>
   );
 }
@@ -25,10 +25,7 @@ export function TextArea({ labelname, value }) {
   );
 }
 
-// function handleChange(event){
-//   setValue(event.target.value)
 
-// }
 // function changeHTML(labelname, value){
 //   const [value, setValue] = useState("")
 

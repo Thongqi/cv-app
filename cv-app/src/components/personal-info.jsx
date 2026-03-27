@@ -1,8 +1,8 @@
 import { Input, TextArea, ImageInput } from "./input";
 
-export function PersonalInfo() {
+export function PersonalInfoForm() {
   return (
-    <div class="">
+    <div class="form-accordion">
       <Input labelname={"Name"}></Input>
       <Input labelname={"Contact"}></Input>
       <Input labelname={"Email"}></Input>

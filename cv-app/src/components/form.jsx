@@ -4,6 +4,9 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import "./form.css";
+import { PersonalInfoForm } from "./personal-info.jsx"
+
+
 
 export function Form() {
   return (
@@ -16,7 +19,9 @@ export function Form() {
         >
           <Typography component="span">Personal Information</Typography>
         </AccordionSummary>
-        <AccordionDetails></AccordionDetails>
+        <AccordionDetails>
+          <PersonalInfoForm />
+        </AccordionDetails>
       </Accordion>
 
       <Accordion class="accordion">

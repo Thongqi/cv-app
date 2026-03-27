@@ -84,7 +84,8 @@ function EduBackground({ edu }) {
   }
 }
 
-function Skills({ skills }) {
+function Skills() {
+  
   if (skills) {
     const skillItems = skills.map((skill) => <li>{skill}</li>);
 

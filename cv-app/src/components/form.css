@@ -9,3 +9,8 @@
   padding: 2rem 2rem 0 2rem;
   background-color: var(--bg-color);
 }
+
+.form .form-accordion{
+  padding: 1rem;
+  display: flex;
+}
