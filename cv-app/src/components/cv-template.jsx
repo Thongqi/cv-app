@@ -1,13 +1,28 @@
-import { PersonalInfo } from "./personal-info";
+import { PersonalInfoForm } from "./personal-info";
 import "./cv-template.css";
+import { useContext } from "react";
+import { CVContext } from "../App";
+import personimage from "../assets/santa.jpg";
 
 export function Resume() {
-  return <div class="resume"></div>;
+  return (
+    <div class="resume">
+      switch
+      <TemplateLeftToRight></TemplateLeftToRight>
+    </div>
+  );
 }
 
 export function TemplateToptoBottom() {
+  const infos = useContext(CVContext).cvinfo;
+
   return (
     <div class="vertical">
+      <p class="name">{infos.name}</p>
+
+      <PersonalInfo></PersonalInfo>
+      <p class="descr">{infos.descr}</p>
+      <img src={personimage}></img>
       <WorkExps></WorkExps>
       <EduBackgrounds></EduBackgrounds>
       <Skills></Skills>
@@ -17,14 +32,20 @@ export function TemplateToptoBottom() {
 }
 
 function TemplateLeftToRight() {
+  const infos = useContext(CVContext).cvinfo;
   return (
-    <div class="ltor">
+    <div class="sidebyside" style={{ flexDirection: "row" }}>
       <div class="left">
+        <img src={personimage}></img>
         <PersonalInfo></PersonalInfo>
+
         <Skills></Skills>
         <Languages></Languages>
       </div>
       <div class="right">
+        <p class="name">{infos.name}</p>
+
+        <p class="pidescr">{infos.descr}</p>
         <WorkExps></WorkExps>
         <EduBackgrounds></EduBackgrounds>
       </div>
@@ -32,7 +53,22 @@ function TemplateLeftToRight() {
   );
 }
 
+function PersonalInfo() {
+  const infos = useContext(CVContext).cvinfo;
+
+  return (
+    <div class="personalinfo">
+      <div class="contact">
+        <p>Email {infos.email}</p>
+        <p>Contact {infos.contact}</p>
+      </div>
+    </div>
+  );
+}
+
 function WorkExps() {
+  const infos = useContext(CVContext);
+  const works = infos.cvinfo.exp;
   return (
     <div>
       <div>
@@ -40,25 +76,30 @@ function WorkExps() {
           <p class="template-h2">PROFESSIONAL EXPERIENCE</p>
         </mark>
       </div>
-      <WorkExp></WorkExp>
+      <div>
+        {works.map((work) => (
+          <div class="work" key={work.id}>
+            <p class="title">{work.position}</p>
+            <div style={{ display: "flex", flexDirection: "row" }}>
+              <p class="location">{work.location}</p>
+              <p class="timeframe">{work.timeframe}</p>
+            </div>
+
+            <ul class="descr">
+              {work.descr.map((des) => (
+                <li>{des}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
 
-function WorkExp({ work }) {
-  if (work) {
-    return (
-      <div class="work">
-        <p class="title">{work.jobtitle}</p>
-        <p class="companyname">{work.companyname}</p>
-        <p class="timeframe">{work.timeframe}</p>
-        <p class="descr">{work.descr}</p>
-      </div>
-    );
-  }
-}
-
 function EduBackgrounds() {
+  const infos = useContext(CVContext);
+  const edus = infos.cvinfo.edu;
   return (
     <div>
       <div>
@@ -66,51 +107,56 @@ function EduBackgrounds() {
           <p class="template-h2">EDUCATIONAL BACKGROUND</p>
         </mark>
       </div>
-      <EduBackground></EduBackground>
+      <div>
+        {edus.map((edu) => (
+          <div class="edu" key={edu.id}>
+            <p class="title">{edu.course}</p>
+            <div style={{ display: "flex", flexDirection: "row" }}>
+              <p class="location">{edu.location}</p>
+              <p class="timeframe">{edu.timeframe}</p>
+            </div>
+
+            <ul class="descr">
+              {edu.descr.map((des) => (
+                <li>{des}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
 
-function EduBackground({ edu }) {
-  if (edu) {
-    return (
-      <div class="edu">
-        <p class="coursename">{edu.coursename}</p>
-        <p class="institutename">{edu.institutename}</p>
-        <p class="timeframe">{edu.timeframe}</p>
-        <p class="descr">{edu.descr}</p>
-      </div>
-    );
-  }
-}
-
 function Skills() {
-  
-  if (skills) {
-    const skillItems = skills.map((skill) => <li>{skill}</li>);
+  const infos = useContext(CVContext);
 
-    return <ul>{skillItems}</ul>;
-  }
   return (
     <div>
       <mark>
         <p class="template-h2">SKILLS</p>
       </mark>
+      <ul>
+        {infos.cvinfo.skills.map((skill) => (
+          <li>{skill}</li>
+        ))}
+      </ul>
     </div>
   );
 }
 
-function Languages({ languages }) {
-  if (languages) {
-    const languageItems = languages.map((language) => <li>{language}</li>);
-
-    return <ul>{languageItems}</ul>;
-  }
+function Languages() {
+  const infos = useContext(CVContext);
   return (
     <div>
       <mark>
         <p class="template-h2">LANGUAGE</p>
       </mark>
+      <ul>
+        {infos.cvinfo.languages.map((language) => (
+          <li>{language}</li>
+        ))}
+      </ul>
     </div>
   );
 }

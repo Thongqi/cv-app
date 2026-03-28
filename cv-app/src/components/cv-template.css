@@ -1,61 +1,99 @@
-.work {
-  display: flex;
-  flex-direction: column;
+.resume div {
   height: fit-content;
+  text-align: left;
 }
 
-.work p {
-  flex: 1;
+.resume > div {
+  aspect-ratio: 1/1.414;
+  width: 500px;
+  background-color: white;
+  padding: 2rem 3.5rem;
+  position: relative;
+}
+
+.resume ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+.resume .name {
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 1rem 0;
+}
+
+.contact {
+  font-size: 0.8rem;
+  font-weight: 500;
 }
 
 .title,
 .coursename {
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   font-weight: bold;
 }
 
-.companyname,
-.institutename {
-  font-size: 1rem;
-  font-weight: bold;
+.resume img {
+  width: 90px;
+  aspect-ratio: 1/1;
+  border-radius: 100%;
+}
+
+.vertical img {
+  position: absolute;
+  right: 3rem;
+}
+
+.location {
+  font-size: 0.7rem;
 }
 
 .timeframe {
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   font-weight: lighter;
   font-style: italic;
+  text-align: end;
 }
 
-.descr {
-  font-size: 1rem;
+.vertical .pidescr {
+  width: 70%;
+}
+.pidescr {
+  line-height: 110%;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.5rem 0;
+}
+
+.descr,
+ul {
+  font-size: 0.7rem;
   font-weight: normal;
   line-height: 100%;
   text-align: justify;
 }
 
 .template-h2 {
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: bold;
 }
 
 .resume {
   padding: 1rem;
-  aspect-ratio: 1/1.414;
-  margin: 1rem;
   width: 70%;
   background-color: var(--bg-color);
+  overflow-wrap: break-word;
 }
 
-.ltor {
+.sidebyside {
   display: flex;
-  flex-direction: row;
   gap: 10px;
 }
 
-.ltor .left {
-  width: 30%;
+.sidebyside .left {
+  width: 35%;
 }
 
-.ltor .right {
-  width: 70%;
+.sidebyside .right {
+  width: 65%;
 }

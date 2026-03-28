@@ -6,7 +6,7 @@ export function PersonalInfoForm() {
       <Input labelname={"Name"}></Input>
       <Input labelname={"Contact"}></Input>
       <Input labelname={"Email"}></Input>
-      <TextArea labelname={"description"}></TextArea>
+      <TextArea labelname={"Description"}></TextArea>
       {/* <ImageInput></ImageInput> */}
     </div>
   );
