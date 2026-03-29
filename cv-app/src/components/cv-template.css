@@ -12,8 +12,9 @@
 }
 
 .resume ul {
-  padding: 0;
+  padding-left: 0;
   list-style-type: none;
+  margin: 0;
 }
 
 .resume .name {
@@ -27,10 +28,18 @@
   font-weight: 500;
 }
 
+.work > div,
+.edu > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .title,
 .coursename {
   font-size: 0.9rem;
   font-weight: bold;
+  line-height: 100%;
 }
 
 .resume img {
@@ -42,6 +51,7 @@
 .vertical img {
   position: absolute;
   right: 3rem;
+  top: 3rem;
 }
 
 .location {
@@ -64,13 +74,16 @@
   font-weight: 500;
   padding: 0.5rem 0;
 }
-
+mark {
+  background-color: blue;
+}
 .descr,
 ul {
   font-size: 0.7rem;
   font-weight: normal;
   line-height: 100%;
   text-align: justify;
+  padding-bottom: 10px;
 }
 
 .template-h2 {

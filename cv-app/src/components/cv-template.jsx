@@ -3,12 +3,31 @@ import "./cv-template.css";
 import { useContext } from "react";
 import { CVContext } from "../App";
 import personimage from "../assets/santa.jpg";
+import { useTemplateContext } from "./TemplateContext";
 
 export function Resume() {
+  const { templatetype } = useTemplateContext();
+  console.log(templatetype);
   return (
     <div class="resume">
-      switch
-      <TemplateLeftToRight></TemplateLeftToRight>
+      {(() => {
+        switch (templatetype) {
+          case "ttob":
+            return <TemplateToptoBottom></TemplateToptoBottom>;
+          case "ltor":
+            return (
+              <TemplateSidebySide flexdirection={"row"}></TemplateSidebySide>
+            );
+          case "rtol":
+            return (
+              <TemplateSidebySide
+                flexdirection={"row-reverse"}
+              ></TemplateSidebySide>
+            );
+          default:
+            return <TemplateToptoBottom></TemplateToptoBottom>;
+        }
+      })()}
     </div>
   );
 }
@@ -18,10 +37,10 @@ export function TemplateToptoBottom() {
 
   return (
     <div class="vertical">
-      <p class="name">{infos.name}</p>
+      <p class="name">{infos.Name}</p>
 
       <PersonalInfo></PersonalInfo>
-      <p class="descr">{infos.descr}</p>
+      <p class="descr">{infos.Description}</p>
       <img src={personimage}></img>
       <WorkExps></WorkExps>
       <EduBackgrounds></EduBackgrounds>
@@ -31,10 +50,10 @@ export function TemplateToptoBottom() {
   );
 }
 
-function TemplateLeftToRight() {
+function TemplateSidebySide({ flexdirection }) {
   const infos = useContext(CVContext).cvinfo;
   return (
-    <div class="sidebyside" style={{ flexDirection: "row" }}>
+    <div class="sidebyside" style={{ flexDirection: flexdirection }}>
       <div class="left">
         <img src={personimage}></img>
         <PersonalInfo></PersonalInfo>
@@ -43,9 +62,9 @@ function TemplateLeftToRight() {
         <Languages></Languages>
       </div>
       <div class="right">
-        <p class="name">{infos.name}</p>
+        <p class="name">{infos.Name}</p>
 
-        <p class="pidescr">{infos.descr}</p>
+        <p class="pidescr">{infos.Description}</p>
         <WorkExps></WorkExps>
         <EduBackgrounds></EduBackgrounds>
       </div>
@@ -59,8 +78,8 @@ function PersonalInfo() {
   return (
     <div class="personalinfo">
       <div class="contact">
-        <p>Email {infos.email}</p>
-        <p>Contact {infos.contact}</p>
+        <p>Email {infos.Email}</p>
+        <p>Contact {infos.Contact}</p>
       </div>
     </div>
   );
@@ -72,21 +91,21 @@ function WorkExps() {
   return (
     <div>
       <div>
-        <mark>
-          <p class="template-h2">PROFESSIONAL EXPERIENCE</p>
-        </mark>
+        <p class="template-h2">
+          <mark>PROFESSIONAL EXPERIENCE</mark>
+        </p>
       </div>
       <div>
         {works.map((work) => (
           <div class="work" key={work.id}>
-            <p class="title">{work.position}</p>
-            <div style={{ display: "flex", flexDirection: "row" }}>
-              <p class="location">{work.location}</p>
-              <p class="timeframe">{work.timeframe}</p>
+            <p class="title">{work.Position}</p>
+            <div>
+              <p class="location">{work.Location}</p>
+              <p class="timeframe">{work.Timeframe}</p>
             </div>
 
             <ul class="descr">
-              {work.descr.map((des) => (
+              {work.Description.map((des) => (
                 <li>{des}</li>
               ))}
             </ul>
@@ -103,21 +122,21 @@ function EduBackgrounds() {
   return (
     <div>
       <div>
-        <mark>
-          <p class="template-h2">EDUCATIONAL BACKGROUND</p>
-        </mark>
+        <p class="template-h2">
+          <mark>EDUCATIONAL BACKGROUND</mark>
+        </p>
       </div>
       <div>
         {edus.map((edu) => (
           <div class="edu" key={edu.id}>
-            <p class="title">{edu.course}</p>
-            <div style={{ display: "flex", flexDirection: "row" }}>
-              <p class="location">{edu.location}</p>
-              <p class="timeframe">{edu.timeframe}</p>
+            <p class="title">{edu.Course}</p>
+            <div>
+              <p class="location">{edu.Location}</p>
+              <p class="timeframe">{edu.Timeframe}</p>
             </div>
 
             <ul class="descr">
-              {edu.descr.map((des) => (
+              {edu.Description.map((des) => (
                 <li>{des}</li>
               ))}
             </ul>
@@ -133,9 +152,10 @@ function Skills() {
 
   return (
     <div>
-      <mark>
-        <p class="template-h2">SKILLS</p>
-      </mark>
+      <p class="template-h2">
+        <mark>SKILLS</mark>
+      </p>
+
       <ul>
         {infos.cvinfo.skills.map((skill) => (
           <li>{skill}</li>
@@ -149,9 +169,9 @@ function Languages() {
   const infos = useContext(CVContext);
   return (
     <div>
-      <mark>
-        <p class="template-h2">LANGUAGE</p>
-      </mark>
+      <p>
+        <mark class="template-h2">LANGUAGE</mark>
+      </p>
       <ul>
         {infos.cvinfo.languages.map((language) => (
           <li>{language}</li>

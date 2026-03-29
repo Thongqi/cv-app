@@ -8,36 +8,28 @@ import { PersonalInfoForm } from "./personal-info.jsx";
 import svg_ttob from "../assets/svg_ttob.png";
 import svg_rtol from "../assets/svg_rtol.png";
 import svg_ltor from "../assets/svg_ltor.png";
-import { createContext, useState } from "react";
+import { useTemplateContext } from "./TemplateContext.jsx";
+import { Experience } from "./experience.jsx";
 
-// export const TemplateContext = createContext(value={templatetype});
-
-export function TemplateDisplay() {
-  const [templatetype, setTemplateType] = useState("");
-
-  function selectTemplate(type) {
-    setTemplateType(type);
-    changeTemplate();
-  }
-
-  function changeTemplate() {}
+function SelectTemplate() {
+  const { setTemplate } = useTemplateContext();
 
   return (
     <div class="svgs">
       <img
         src={svg_ttob}
         id="ttob"
-        onClick={(e) => selectTemplate(e.target.id)}
+        onClick={(e) => setTemplate(e.target.id)}
       ></img>
       <img
         src={svg_ltor}
         id="ltor"
-        onClick={(e) => selectTemplate(e.target.id)}
+        onClick={(e) => setTemplate(e.target.id)}
       ></img>
       <img
         src={svg_rtol}
         id="rtol"
-        onClick={(e) => selectTemplate(e.target.id)}
+        onClick={(e) => setTemplate(e.target.id)}
       ></img>
     </div>
   );
@@ -61,7 +53,7 @@ export function Form() {
           </AccordionDetails>
         </Accordion>
 
-        <Accordion class="accordion">
+        <Accordion class="accordion" id="expelement">
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel1-content"
@@ -69,7 +61,9 @@ export function Form() {
           >
             <Typography component="span">Professional Experience</Typography>
           </AccordionSummary>
-          <AccordionDetails></AccordionDetails>
+          <AccordionDetails>
+            <Experience></Experience>
+          </AccordionDetails>
         </Accordion>
 
         <Accordion class="accordion">

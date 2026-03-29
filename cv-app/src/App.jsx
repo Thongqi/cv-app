@@ -1,24 +1,25 @@
 import { Resume } from "./components/cv-template";
-import { Form, TemplateContext } from "./components/form";
+import { Form } from "./components/form";
 import { createContext, useState } from "react";
+import { TemplateContextProvider } from "./components/TemplateContext";
 
 export const CVContext = createContext(null);
 
 export default function App() {
   let cvinfos = {
-    name: "Santa Claus",
-    contact: "+12345678910",
-    email: "santaatnorthpole@gmail.com",
-    descr:
+    Name: "Santa Claus",
+    Contact: "+12345678910",
+    Email: "santaatnorthpole@gmail.com",
+    Description:
       "Known for elite chimney navigation, unmatched night-shift endurance, and a strong commitment to spreading joy (and mild chaos) across all continents. Thrives under extreme deadlines, cold environments, and cookie-based compensation systems.",
-    image: "./assets/santa.jpg",
+    Image: "./assets/santa.jpg",
     exp: [
       {
         id: "1",
-        position: "Chief Gift Officer (CGO)",
-        location: "Santa’s Workshop Inc., North Pole",
-        timeframe: "Year 0 - Now",
-        descr: [
+        Position: "Chief Gift Officer (CGO)",
+        Location: "Santa’s Workshop Inc., North Pole",
+        Timeframe: "Year 0 - Now",
+        Description: [
           "Execute worldwide gift delivery to billions of households in a single night—no delays, no excuses",
           "Manage and supervise a large-scale elf workforce across toy production, packaging, and quality control",
           "Maintain and update the Naughty/Nice List™ using highly questionable but festive criteria",
@@ -31,10 +32,10 @@ export default function App() {
     edu: [
       {
         id: "1",
-        location: "North Pole University",
-        course: "Bachelor of Holiday Spirit & Cheer Management",
-        timeframe: "1830-1834",
-        descr: [
+        Location: "North Pole University",
+        Course: "Bachelor of Holiday Spirit & Cheer Management",
+        Timeframe: "1830-1834",
+        Description: [
           "Focus: Advanced Gift Wrapping, Sleigh Engineering, and Cookie Evaluation",
           "Capstone Project: “Optimizing Global Gift Distribution in 24 Hours Without Getting Arrested”",
           "Achievement: The only graduate",
@@ -51,14 +52,19 @@ export default function App() {
   };
 
   const [cvinfo, setcvinfo] = useState(cvinfos);
+
+  function setUserInfo(info) {
+    setcvinfo(info);
+  }
+
   return (
     <>
-      <CVContext value={{ cvinfo, setcvinfo }}>
+      <CVContext value={{ cvinfo, setUserInfo }}>
         <div style={{ display: "flex", flexDirection: "row" }}>
-          <TemplateContext>
+          <TemplateContextProvider>
             <Form></Form>
             <Resume></Resume>
-          </TemplateContext>
+          </TemplateContextProvider>
         </div>
       </CVContext>
     </>
