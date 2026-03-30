@@ -85,7 +85,9 @@ export function Form() {
           >
             <Typography component="span">Skills</Typography>
           </AccordionSummary>
-          <AccordionDetails></AccordionDetails>
+          <AccordionDetails>
+            <List section="skills"></List>
+          </AccordionDetails>
         </Accordion>
 
         <Accordion class="accordion">
@@ -96,7 +98,9 @@ export function Form() {
           >
             <Typography component="span">Language</Typography>
           </AccordionSummary>
-          <AccordionDetails></AccordionDetails>
+          <AccordionDetails>
+            <List section="language"></List>
+          </AccordionDetails>
         </Accordion>
       </div>
     </div>

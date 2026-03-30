@@ -7,13 +7,15 @@ export function Input({ labelname, section }) {
   function handleInput(e) {
     const text = e.target.value;
     if (section) {
+      // get the editing element id
+      const currentid = event.target.parentElement.getAttribute('data-id');
+
       const thesection = cvinfo[section];
       console.log(thesection.map((el) => el.id));
-      setUserInfo({
-        [labelname]: thesection.map((el) =>
-          el.id === 1 ? { ...el, [labelname]: text } : el,
-        ),
-      });
+      
+      if(thesection.length < parseInt(currentid)) appendInfo(cvinfo, section, labelname,text)
+      else editInfo(cvinfo, section, labelname,text)
+
     } else {
       setUserInfo({
         ...cvinfo,
@@ -33,6 +35,27 @@ export function Input({ labelname, section }) {
       />
     </div>
   );
+}
+
+function editInfo(cvinfo, section, labelname,text){
+  setUserInfo({
+        ...cvinfo,
+        [section]: cvinfo[section].map(
+          item => {
+            if (item.id === currentid){
+              return {...item, [labelname]: text}
+            } 
+            return item
+          }
+        )     
+      });
+}
+
+function appendInfo(cvinfo, section, labelname,text){
+  setUserInfo(
+    ...cvinfo,
+    [section]: [...cvinfo[section],{[labelname]: text}]
+  )
 }
 
 export function ImageInput() {
@@ -61,12 +84,11 @@ export function TextArea({ labelname }) {
   );
 }
 
-// function changeHTML(labelname, value){
-//   const [value, setValue] = useState("")
+export function List(){
 
-//   return(
-//     <div>
-//       {value}
-//     </div>
-//   )
-// };
+  return(
+    <>
+      
+    </>
+  )
+}
