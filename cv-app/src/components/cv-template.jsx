@@ -105,9 +105,9 @@ function WorkExps() {
             </div>
 
             <ul class="descr">
-              {work.Description.map((des) => (
+              {/* {work.Description.map((des) => (
                 <li>{des}</li>
-              ))}
+              ))} */}
             </ul>
           </div>
         ))}

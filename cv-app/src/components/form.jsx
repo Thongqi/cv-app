@@ -9,7 +9,8 @@ import svg_ttob from "../assets/svg_ttob.png";
 import svg_rtol from "../assets/svg_rtol.png";
 import svg_ltor from "../assets/svg_ltor.png";
 import { useTemplateContext } from "./TemplateContext.jsx";
-import { Experience } from "./experience.jsx";
+import { ExpEduBox } from "./expedu.jsx";
+import { List } from "./input.jsx";
 
 function SelectTemplate() {
   const { setTemplate } = useTemplateContext();
@@ -62,7 +63,7 @@ export function Form() {
             <Typography component="span">Professional Experience</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Experience></Experience>
+            <ExpEduBox section="exp"></ExpEduBox>
           </AccordionDetails>
         </Accordion>
 
@@ -74,7 +75,9 @@ export function Form() {
           >
             <Typography component="span">Educational Background</Typography>
           </AccordionSummary>
-          <AccordionDetails></AccordionDetails>
+          <AccordionDetails>
+            <ExpEduBox section="edu"></ExpEduBox>
+          </AccordionDetails>
         </Accordion>
 
         <Accordion class="accordion">

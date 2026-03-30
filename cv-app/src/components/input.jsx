@@ -6,22 +6,44 @@ export function Input({ labelname, section }) {
 
   function handleInput(e) {
     const text = e.target.value;
+    const currentid =
+      e.target.parentElement.parentElement.getAttribute("data-id");
+
     if (section) {
       // get the editing element id
-      const currentid = event.target.parentElement.getAttribute('data-id');
 
       const thesection = cvinfo[section];
-      console.log(thesection.map((el) => el.id));
-      
-      if(thesection.length < parseInt(currentid)) appendInfo(cvinfo, section, labelname,text)
-      else editInfo(cvinfo, section, labelname,text)
+      console.log(thesection);
 
+      if (thesection.length < parseInt(currentid)) appendInfo(text, currentid);
+      else editInfo(text, parseInt(currentid));
     } else {
       setUserInfo({
         ...cvinfo,
         [labelname]: e.target.value,
       });
     }
+  }
+
+  function editInfo(text, currentid) {
+    // if(section === "Description")
+
+    setUserInfo({
+      ...cvinfo,
+      [section]: cvinfo[section].map((item) => {
+        if (parseInt(item.id) === currentid) {
+          console.log("hi");
+          return { ...item, [labelname]: text };
+        } else return item;
+      }),
+    });
+  }
+
+  function appendInfo(text) {
+    setUserInfo({
+      ...cvinfo,
+      [section]: [...cvinfo[section], { [labelname]: text }],
+    });
   }
 
   return (
@@ -37,27 +59,6 @@ export function Input({ labelname, section }) {
   );
 }
 
-function editInfo(cvinfo, section, labelname,text){
-  setUserInfo({
-        ...cvinfo,
-        [section]: cvinfo[section].map(
-          item => {
-            if (item.id === currentid){
-              return {...item, [labelname]: text}
-            } 
-            return item
-          }
-        )     
-      });
-}
-
-function appendInfo(cvinfo, section, labelname,text){
-  setUserInfo(
-    ...cvinfo,
-    [section]: [...cvinfo[section],{[labelname]: text}]
-  )
-}
-
 export function ImageInput() {
   return (
     <div>
@@ -67,28 +68,6 @@ export function ImageInput() {
   );
 }
 
-export function TextArea({ labelname }) {
-  const { cvinfo, setUserInfo } = useContext(CVContext);
-
-  return (
-    <div>
-      <label>{labelname}</label>
-      <textArea
-        name={labelname}
-        rows="9"
-        onChange={(e) => {
-          setUserInfo({ ...cvinfo, [labelname]: e.target.value });
-        }}
-      />
-    </div>
-  );
-}
-
-export function List(){
-
-  return(
-    <>
-      
-    </>
-  )
+export function List() {
+  return <></>;
 }
