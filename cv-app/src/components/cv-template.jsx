@@ -7,7 +7,6 @@ import { useTemplateContext } from "./TemplateContext";
 
 export function Resume() {
   const { templatetype } = useTemplateContext();
-  console.log(templatetype);
   return (
     <div class="resume">
       {(() => {
@@ -105,9 +104,9 @@ function WorkExps() {
             </div>
 
             <ul class="descr">
-              {/* {work.Description.map((des) => (
+              {work.Description.map((des) => (
                 <li>{des}</li>
-              ))} */}
+              ))}
             </ul>
           </div>
         ))}

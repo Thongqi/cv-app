@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Input } from "./input";
 import { TextArea } from "./textarea";
 
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import { CVContext } from "../App";
 
 function ExpEduTemplate({ id, section }) {
   return (
@@ -19,6 +20,8 @@ function ExpEduTemplate({ id, section }) {
 }
 
 export function ExpEduBox({ section }) {
+  const { cvinfo, setUserInfo } = useContext(CVContext);
+
   const [number, setNumber] = useState(1);
   console.log(number);
   const [List, setList] = useState([
@@ -31,6 +34,21 @@ export function ExpEduBox({ section }) {
       ...existing,
       <ExpEduTemplate id={number + 1} section={section}></ExpEduTemplate>,
     ]);
+
+    const title = section == "edu" ? "Course" : "Position";
+
+    const newObject = {
+      id: parseInt(number + 1),
+      [title]: "",
+      Location: "",
+      Timeframe: "",
+      Description: [],
+    };
+    setUserInfo({
+      ...cvinfo,
+      [section]: [...cvinfo[section], newObject],
+    });
+    console.log(cvinfo);
   }
   return (
     <>

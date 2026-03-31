@@ -12,11 +12,8 @@ export function Input({ labelname, section }) {
     if (section) {
       // get the editing element id
 
-      const thesection = cvinfo[section];
-      console.log(thesection);
-
-      if (thesection.length < parseInt(currentid)) appendInfo(text, currentid);
-      else editInfo(text, parseInt(currentid));
+      editInfo(text, parseInt(currentid));
+      console.log(cvinfo);
     } else {
       setUserInfo({
         ...cvinfo,
@@ -39,18 +36,12 @@ export function Input({ labelname, section }) {
     });
   }
 
-  function appendInfo(text) {
-    setUserInfo({
-      ...cvinfo,
-      [section]: [...cvinfo[section], { [labelname]: text }],
-    });
-  }
-
   return (
     <div>
       <label>{labelname}</label>
       <input
         name={labelname}
+        data-section={section}
         onChange={(e) => {
           handleInput(e);
         }}

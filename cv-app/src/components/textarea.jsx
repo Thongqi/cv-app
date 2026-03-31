@@ -28,6 +28,7 @@ export function TextArea({ labelname, section }) {
       <label>{labelname}</label>
       <textArea
         name={labelname}
+        data-section={section}
         rows="9"
         onChange={(e) => {
           handleChange(e);

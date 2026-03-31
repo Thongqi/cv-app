@@ -1,4 +1,5 @@
-import { Input, TextArea, ImageInput } from "./input";
+import { Input, ImageInput } from "./input";
+import { TextArea } from "./textarea";
 
 export function PersonalInfoForm() {
   return (
