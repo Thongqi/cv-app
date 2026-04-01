@@ -5,11 +5,13 @@ export function TextArea({ labelname, section }) {
   const { cvinfo, setUserInfo } = useContext(CVContext);
 
   function editInfo(text, currentid) {
+    const textArray = text.split("\n");
+
     setUserInfo({
       ...cvinfo,
       [section]: cvinfo[section].map((item) => {
         if (parseInt(item.id) === currentid) {
-          return { ...item, [labelname]: [text] };
+          return { ...item, [labelname]: textArray };
         } else return item;
       }),
     });

@@ -29,7 +29,6 @@ export function Input({ labelname, section }) {
       ...cvinfo,
       [section]: cvinfo[section].map((item) => {
         if (parseInt(item.id) === currentid) {
-          console.log("hi");
           return { ...item, [labelname]: text };
         } else return item;
       }),
@@ -57,8 +56,4 @@ export function ImageInput() {
       <input type="file" name="picture" accept=".png, .jpg, .jpeg" />
     </div>
   );
-}
-
-export function List() {
-  return <></>;
 }

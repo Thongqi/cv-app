@@ -10,7 +10,7 @@ import svg_rtol from "../assets/svg_rtol.png";
 import svg_ltor from "../assets/svg_ltor.png";
 import { useTemplateContext } from "./TemplateContext.jsx";
 import { ExpEduBox } from "./expedu.jsx";
-import { List } from "./input.jsx";
+import { List } from "./list.jsx";
 
 function SelectTemplate() {
   const { setTemplate } = useTemplateContext();
