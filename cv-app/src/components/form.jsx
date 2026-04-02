@@ -10,7 +10,7 @@ import svg_rtol from "../assets/svg_rtol.png";
 import svg_ltor from "../assets/svg_ltor.png";
 import { useTemplateContext } from "./TemplateContext.jsx";
 import { ExpEduBox } from "./expedu.jsx";
-import { List } from "./list.jsx";
+import { TextArea } from "./textarea.jsx";
 
 function SelectTemplate() {
   const { setTemplate } = useTemplateContext();
@@ -89,7 +89,7 @@ export function Form() {
             <Typography component="span">Skills</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <List section="skills"></List>
+            <TextArea section="skills"></TextArea>
           </AccordionDetails>
         </Accordion>
 
@@ -102,7 +102,7 @@ export function Form() {
             <Typography component="span">Language</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <List section="language"></List>
+            <TextArea section="languages"></TextArea>
           </AccordionDetails>
         </Accordion>
       </div>

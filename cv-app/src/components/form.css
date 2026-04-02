@@ -36,3 +36,11 @@
   flex-direction: column;
   text-align: left;
 }
+
+[data-section="skills"] {
+  width: 85%;
+}
+
+[data-section="languages"] {
+  width: 85%;
+}

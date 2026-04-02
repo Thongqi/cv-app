@@ -7,15 +7,18 @@ export function TextArea({ labelname, section }) {
   function editInfo(text, currentid) {
     const textArray = text.split("\n");
 
-    setUserInfo({
-      ...cvinfo,
-      [section]: cvinfo[section].map((item) => {
-        if (parseInt(item.id) === currentid) {
-          return { ...item, [labelname]: textArray };
-        } else return item;
-      }),
-    });
-    console.log(cvinfo);
+    if (section == "skills" || section == "languages") {
+      setUserInfo({ ...cvinfo, [section]: textArray });
+    } else {
+      setUserInfo({
+        ...cvinfo,
+        [section]: cvinfo[section].map((item) => {
+          if (parseInt(item.id) === currentid) {
+            return { ...item, [labelname]: textArray };
+          } else return item;
+        }),
+      });
+    }
   }
 
   const handleChange = (e) => {

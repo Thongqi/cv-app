@@ -23,7 +23,6 @@ export function ExpEduBox({ section }) {
   const { cvinfo, setUserInfo } = useContext(CVContext);
 
   const [number, setNumber] = useState(1);
-  console.log(number);
   const [List, setList] = useState([
     <ExpEduTemplate id={number} section={section}></ExpEduTemplate>,
   ]);
