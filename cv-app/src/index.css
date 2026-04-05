@@ -15,8 +15,8 @@
   --sans: system-ui, "Segoe UI", Roboto, sans-serif;
   --heading: system-ui, "Segoe UI", Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
-
-  font: 18px/145% var(--sans);
+  --viewport-scale: 0.1;
+  font: 15px/145% var(--sans);
   letter-spacing: 0.18px;
   color-scheme: light dark;
   color: var(--text);
@@ -65,8 +65,98 @@ input {
   border-inline: 1px solid var(--border);
   min-height: 100svh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   box-sizing: border-box;
+}
+
+@media screen and (min-width: 880px) {
+  .form {
+    width: 30%;
+  }
+
+  .form .togglebutton {
+    display: none;
+  }
+
+  .resume {
+    width: 70%;
+  }
+
+  .resume > div {
+    top: 10%;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .resume > div {
+    transform: scale(0.8);
+    transform-origin: left;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .resume > div {
+    transform: scale(0.7);
+    transform-origin: left;
+  }
+}
+
+@media screen and (max-width: 879px) {
+  .resume {
+    width: 100%;
+  }
+  .resume > div {
+    transform: scale(1);
+  }
+
+  .form {
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+  }
+
+  .form .togglebutton {
+    display: block;
+  }
+
+  .form.hide {
+    transform: translateY(100%);
+    transition: transform 0.4s ease-out;
+    bottom: 50px;
+    padding-top: 0;
+  }
+
+  .form.reveal {
+    transform: translateY(0);
+    height: -webkit-fill-available;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .resume > div {
+    transform: scale(0.8);
+    transform-origin: center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .resume > div {
+    transform: scale(0.7);
+    transform-origin: center;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .resume > div {
+    transform: scale(0.6);
+    transform-origin: center;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .resume > div {
+    transform: scale(0.5);
+    transform-origin: center;
+  }
 }
 
 h1,

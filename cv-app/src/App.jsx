@@ -2,6 +2,7 @@ import { Resume } from "./components/cv-template";
 import { Form } from "./components/form";
 import { createContext, useState } from "react";
 import { TemplateContextProvider } from "./components/TemplateContext";
+import { ColorContextProvider } from "./components/color";
 
 export const CVContext = createContext(null);
 
@@ -60,12 +61,12 @@ export default function App() {
   return (
     <>
       <CVContext value={{ cvinfo, setUserInfo }}>
-        <div style={{ display: "flex", flexDirection: "row" }}>
-          <TemplateContextProvider>
+        <TemplateContextProvider>
+          <ColorContextProvider>
             <Form></Form>
             <Resume></Resume>
-          </TemplateContextProvider>
-        </div>
+          </ColorContextProvider>
+        </TemplateContextProvider>
       </CVContext>
     </>
   );

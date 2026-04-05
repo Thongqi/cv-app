@@ -4,11 +4,13 @@ import { useContext } from "react";
 import { CVContext } from "../App";
 import personimage from "../assets/santa.jpg";
 import { useTemplateContext } from "./TemplateContext";
+import { useColorContext } from "./color";
 
 export function Resume() {
   const { templatetype } = useTemplateContext();
+  const { color } = useColorContext();
   return (
-    <div class="resume">
+    <div class="resume" style={{ color: color }}>
       {(() => {
         switch (templatetype) {
           case "ttob":
@@ -87,11 +89,15 @@ function PersonalInfo() {
 function WorkExps() {
   const infos = useContext(CVContext);
   const works = infos.cvinfo.exp;
+  const { color } = useColorContext();
+
   return (
     <div>
       <div>
         <p class="template-h2">
-          <mark>PROFESSIONAL EXPERIENCE</mark>
+          <mark style={{ backgroundColor: color, color: "white" }}>
+            PROFESSIONAL EXPERIENCE
+          </mark>
         </p>
       </div>
       <div>
@@ -118,11 +124,15 @@ function WorkExps() {
 function EduBackgrounds() {
   const infos = useContext(CVContext);
   const edus = infos.cvinfo.edu;
+  const { color } = useColorContext();
+
   return (
     <div>
       <div>
-        <p class="template-h2">
-          <mark>EDUCATIONAL BACKGROUND</mark>
+        <p class="template-h2" style={{ borderBottomColor: color }}>
+          <mark style={{ backgroundColor: color, color: "white" }}>
+            EDUCATIONAL BACKGROUND
+          </mark>
         </p>
       </div>
       <div>
@@ -148,11 +158,12 @@ function EduBackgrounds() {
 
 function Skills() {
   const infos = useContext(CVContext);
+  const { color } = useColorContext();
 
   return (
     <div>
-      <p class="template-h2">
-        <mark>SKILLS</mark>
+      <p class="template-h2" style={{ borderBottomColor: color }}>
+        <mark style={{ backgroundColor: color, color: "white" }}>SKILLS</mark>
       </p>
 
       <ul>
@@ -166,10 +177,20 @@ function Skills() {
 
 function Languages() {
   const infos = useContext(CVContext);
+  const { color } = useColorContext();
+
   return (
     <div>
-      <p>
-        <mark class="template-h2">LANGUAGE</mark>
+      <p style={{ borderBottomColor: color }} class="template-h2">
+        <mark
+          style={{
+            backgroundColor: color,
+            color: "white",
+            borderBlockColor: color,
+          }}
+        >
+          LANGUAGE
+        </mark>
       </p>
       <ul>
         {infos.cvinfo.languages.map((language) => (
