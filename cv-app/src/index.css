@@ -202,3 +202,32 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+
+@media print {
+  body * {
+    visibility: hidden;
+    display: none;
+  }
+
+  .form {
+    display: none !important;
+  }
+
+  .resume {
+    width: 100%;
+  }
+  #printablearea,
+  #printablearea * {
+    display: block !important;
+    visibility: visible;
+    box-shadow: none;
+  }
+
+  #printablearea {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: -moz-available;
+    width: -webkit-fill-available;
+  }
+}

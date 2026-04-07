@@ -1,5 +1,6 @@
 import { Input, ImageInput } from "./input";
 import { TextArea } from "./textarea";
+import { UploadImage } from "./uploadimage";
 
 export function PersonalInfoForm() {
   return (
@@ -8,7 +9,7 @@ export function PersonalInfoForm() {
       <Input labelname={"Contact"}></Input>
       <Input labelname={"Email"}></Input>
       <TextArea labelname={"Description"}></TextArea>
-      {/* <ImageInput></ImageInput> */}
+      <UploadImage></UploadImage>
     </div>
   );
 }

@@ -13,7 +13,7 @@ export default function App() {
     Email: "santaatnorthpole@gmail.com",
     Description:
       "Known for elite chimney navigation, unmatched night-shift endurance, and a strong commitment to spreading joy (and mild chaos) across all continents. Thrives under extreme deadlines, cold environments, and cookie-based compensation systems.",
-    Image: "./assets/santa.jpg",
+    Image: "/santa.jpg",
     exp: [
       {
         id: "1",
@@ -53,6 +53,7 @@ export default function App() {
   };
 
   const [cvinfo, setcvinfo] = useState(cvinfos);
+  const printRef = useRef();
 
   function setUserInfo(info) {
     setcvinfo(info);

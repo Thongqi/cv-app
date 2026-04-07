@@ -2,15 +2,17 @@ import { PersonalInfoForm } from "./personal-info";
 import "./cv-template.css";
 import { useContext } from "react";
 import { CVContext } from "../App";
-import personimage from "../assets/santa.jpg";
+// import personimage from "../assets/santa.jpg";
 import { useTemplateContext } from "./TemplateContext";
 import { useColorContext } from "./color";
+import { Download } from "./handleDownload";
 
 export function Resume() {
   const { templatetype } = useTemplateContext();
   const { color } = useColorContext();
   return (
-    <div class="resume" style={{ color: color }}>
+    <div class="resume" id="resume" style={{ color: color }}>
+      <Download></Download>
       {(() => {
         switch (templatetype) {
           case "ttob":
@@ -37,12 +39,12 @@ export function TemplateToptoBottom() {
   const infos = useContext(CVContext).cvinfo;
 
   return (
-    <div class="vertical">
+    <div class="vertical" id="printablearea">
       <p class="name">{infos.Name}</p>
 
       <PersonalInfo></PersonalInfo>
       <p class="descr">{infos.Description}</p>
-      <img src={personimage}></img>
+      <img src={infos.Image}></img>
       <WorkExps></WorkExps>
       <EduBackgrounds></EduBackgrounds>
       <Skills></Skills>
@@ -54,9 +56,13 @@ export function TemplateToptoBottom() {
 function TemplateSidebySide({ flexdirection }) {
   const infos = useContext(CVContext).cvinfo;
   return (
-    <div class="sidebyside" style={{ flexDirection: flexdirection }}>
+    <div
+      class="sidebyside"
+      style={{ flexDirection: flexdirection }}
+      id="printablearea"
+    >
       <div class="left">
-        <img src={personimage}></img>
+        <img src={infos.Image}></img>
         <PersonalInfo></PersonalInfo>
 
         <Skills></Skills>
