@@ -1,8 +1,7 @@
-import { PersonalInfoForm } from "./personal-info";
-import "./cv-template.css";
+import "../styles/cv-template.css";
 import { useContext } from "react";
 import { CVContext } from "../App";
-// import personimage from "../assets/santa.jpg";
+
 import { useTemplateContext } from "./TemplateContext";
 import { useColorContext } from "./color";
 import { Download } from "./handleDownload";

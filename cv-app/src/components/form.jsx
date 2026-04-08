@@ -4,7 +4,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
-import "./form.css";
+import "../styles/form.css";
 import { PersonalInfoForm } from "./personal-info.jsx";
 import svg_ttob from "../assets/svg_ttob.png";
 import svg_rtol from "../assets/svg_rtol.png";

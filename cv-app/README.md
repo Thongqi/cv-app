@@ -1,16 +1,16 @@
-# React + Vite
+#CV Generating App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A web application that allows users to create a professional CV by entering their personal information, education background, work experience, skills, and languages.
 
-Currently, two official plugins are available:
+Users can customize their CV by selecting different templates and color themes to match their preferences. Once completed, the CV can be downloaded directly.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+##Features
+Input personal details, education, experience, skills, and languages
+Choose from different templates and color themes
+Download the generated CV
+Responsive design for various screen sizes
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+##Technical Highlights
+Built reusable input and textarea components for form handling
+Implemented global state management using createContext and useContext
+Ensured responsive layout across different devices and screen sizes
