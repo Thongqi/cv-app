@@ -218,9 +218,10 @@ code {
   }
   #printablearea,
   #printablearea * {
-    display: block !important;
+    display: flex !important;
     visibility: visible;
     box-shadow: none;
+    flex-direction: column;
   }
 
   #printablearea {

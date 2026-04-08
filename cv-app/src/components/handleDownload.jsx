@@ -5,8 +5,6 @@ import html2canvas from "html2canvas";
 export function Download() {
   async function handleDownlaod() {
     window.print();
-
-    // TODO: set windowprint with printb ackgroun
   }
 
   return (

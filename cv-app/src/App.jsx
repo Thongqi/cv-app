@@ -53,7 +53,6 @@ export default function App() {
   };
 
   const [cvinfo, setcvinfo] = useState(cvinfos);
-  const printRef = useRef();
 
   function setUserInfo(info) {
     setcvinfo(info);
