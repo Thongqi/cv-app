@@ -1,0 +1,126 @@
+.resume {
+  padding: 1rem;
+  background-color: var(--bg-color);
+  overflow-wrap: break-word;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.resume mark {
+  padding: 0px 5px;
+}
+
+.resume div {
+  height: fit-content;
+  text-align: left;
+}
+
+.resume > div {
+  aspect-ratio: 1/1.414;
+  width: 500px;
+  background-color: white;
+  padding: 2rem 3.5rem;
+  position: sticky;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.29);
+  flex-shrink: 0;
+}
+
+.resume ul {
+  padding-left: 0;
+  list-style-type: none;
+  margin: 0;
+}
+
+.resume .name {
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 1rem 0;
+}
+
+.contact {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.download {
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+}
+.work > div,
+.edu > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.title,
+.coursename {
+  font-size: 0.9rem;
+  font-weight: bold;
+  line-height: 100%;
+}
+
+.resume img {
+  width: 90px;
+  aspect-ratio: 1/1;
+  border-radius: 100%;
+}
+
+.vertical img {
+  position: absolute;
+  right: 3rem;
+  top: 2rem;
+}
+
+.location {
+  font-size: 0.7rem;
+}
+
+.timeframe {
+  font-size: 0.7rem;
+  font-weight: lighter;
+  font-style: italic;
+  text-align: end;
+}
+
+.vertical .pidescr {
+  width: 70%;
+}
+.pidescr {
+  line-height: 110%;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.5rem 0;
+}
+
+.descr,
+ul {
+  font-size: 0.7rem;
+  font-weight: normal;
+  line-height: 100%;
+  text-align: justify;
+  padding-bottom: 10px;
+  color: #6b6375;
+}
+
+.template-h2 {
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: normal;
+  margin-bottom: 5px;
+  border-bottom: 1px solid;
+}
+
+.sidebyside {
+  display: flex;
+  gap: 10px;
+}
+
+.sidebyside .left {
+  width: 35%;
+}
+
+.sidebyside .right {
+  width: 65%;
+}
